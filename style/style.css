@@ -6,7 +6,8 @@ body {
     font-family: 'Raleway', 'Arial', sans-serif;
     color: #000000;
     width: 100%;
-    margin: auto;
+    margin: 0;
+    padding:0;
     max-width: 1440px;
 }
 
@@ -72,30 +73,37 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: 60px;
 }
 
 #logo-booki {
     width: 100px;
     margin-top: 5px;
 }
-
+nav a {
+    display: inline-block;
+    padding: 20px;
+    position: relative;
+    top:0;
+}
+nav a:hover{
+    border-top: 2px solid #0065FC;
+    color: #0065FC;
+}
 #menu-nav {
-    display: flex;
-    justify-content: space-between;
-    font-size: 15px;
-    margin-top: 5px;
+    display: inline-block;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+    position: relative;
 }
 
 #menu-nav a {
-    padding: 30px;
+    display: inline-block;
+    padding: 20px;
 }
 
-#menu-nav a:hover {
-    border-top: 2px solid #0065FC;
-    color: #0065FC;
-    padding-top: 28px;
-}
+
 
 
 /* Bienvenue, recherchez par lieu*/
@@ -466,10 +474,21 @@ footer {
 }
 
 
-/* //////////////// Responsive Design ////////////////  */
+/*  Responsive Design   */
 
-/* ///////// Tablette ///////// */
-@media all and (min-width: 768px) and (max-width: 992px) {
+/* Tablette  */
+@media  all and (max-width: 992px){
+    .hebergement-container{display:flex;
+        flex-direction:column-reverse;
+        gap:50px;
+}
+    .hebergements-container>section{
+        width:100%;
+        padding:0;
+        border: none;
+    }
+}
+@media only screen and (max-width: 1024px) {
 
     #blocpage {
         width: 100%;
@@ -480,7 +499,30 @@ footer {
         width: 100%;
         padding: 0% 5%;
     }
+    /* Tablettes Hotels Resultats */
+    #hotels-list {
+        width: 100%;
+        background-color: #ffffff;
+        border-radius: 0px;
+        padding: 0% 5%;
+    }
 
+    #hotels-list h2,
+    #hotels-list h4 {
+        width: 100%;
+        margin: 2% 0%;
+    }
+
+    #hotels-cardlist {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0%;
+    }
+
+    .hotel-card {
+        margin: 2% 0%;
+    }
     /*  Tablette - Les plus populaires */
     #hotel-searchresults {
         width: 100%;
@@ -512,31 +554,6 @@ footer {
         min-width: 40%;
     }
 
-
-    /* Tablettes Hotels Resultats */
-    #hotels-list {
-        width: 100%;
-        background-color: #ffffff;
-        border-radius: 0px;
-        padding: 0% 5%;
-    }
-
-    #hotels-list h2,
-    #hotels-list h4 {
-        width: 100%;
-        margin: 2% 0%;
-    }
-
-    #hotels-cardlist {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        padding: 0%;
-    }
-
-    .hotel-card {
-        margin: 2% 0%;
-    }
 
     /* Résultats des Activités sur Tablette */
     #activities-searchresults {
@@ -588,9 +605,40 @@ footer {
     }
 
 }
+@media only screen and (max-width: 1280px){
+
+    .hotels{
+        flex: 1.5;
+    }
+    
+    .hotelsTab{
+        grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+        margin: 30px 0;
+    }
+
+    .activityDescription{
+        font-size: 1rem;
+    }
+}
 
 /* ///////// Smartphones ///////// */
+
 @media all and (max-width: 767px) {
+    .filtres {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+    }
+
+    .filtres button{
+        width:100%;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
 
     #blocpage {
         width: 100%;
@@ -619,7 +667,7 @@ footer {
     #menu-nav a:hover {
         border-top: none;
         padding-top: 30px;
-        border-bottom: 2px solid #0065FC;
+        border-bottom: -2px solid #0065FC;
         color: #0065FC;
     }
 
